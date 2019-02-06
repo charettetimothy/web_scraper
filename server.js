@@ -1,8 +1,6 @@
 var express = require("express");
 var mongoose = require("mongoose");
 
-
-
 // Require all models
 var db = require("./models");
 
@@ -31,7 +29,11 @@ app.set("view engine", "handlebars");
 // Routes (tells server where our routes are go here to loo at them)
 var controller = require("./controller")
 app.use(controller)
-// A GET route for scraping the echoJS website
+
+// Start the server
+app.listen(PORT, function() {
+  console.log("App running on port " + PORT + "!");
+});
 
 // // Route for getting all Articles from the db
 // app.get("/articles", function(req, res) {
@@ -82,7 +84,3 @@ app.use(controller)
 //     res.json(error)
 //   })
 // });
-// Start the server
-app.listen(PORT, function() {
-  console.log("App running on port " + PORT + "!");
-});
