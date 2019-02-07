@@ -34,7 +34,7 @@ app.get("/scrape", function(req, res) {
           });
           allArticles.push(result)
       });
-      res.send(allArticles); // Send allArticles to the client 
+      res.send(allArticles)
     });
   });
 

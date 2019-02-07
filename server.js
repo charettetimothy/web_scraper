@@ -30,7 +30,12 @@ app.set("view engine", "handlebars");
 var controller = require("./controller")
 app.use(controller)
 
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+
+mongoose.connect(MONGODB_URI);
+
 // Start the server
+
 app.listen(PORT, function() {
   console.log("App running on port " + PORT + "!");
 });

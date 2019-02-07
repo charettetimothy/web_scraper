@@ -21,4 +21,13 @@ app.get("/saved", function(req, res) {
         res.render("saved", {article: data})
     })
 })
+
+app.delete("/saved/:id", function(req, res) {
+    console.log(req.params.id)
+    db.Article.findByIdAndDelete({_id: req.params.id}).then(function (data) {
+        res.render("saved", {article: data})
+    })
+})
+
+
 module.exports = app

@@ -4,7 +4,7 @@ $(".scrape-new").click(function() {
     method: "GET",
     url: "/api/scrape"
   }).then(function(data) {
-    location.reload()
+    location.replace("/")
     // With that done, add the Articles to the page
     // console.log(data);
     // for (let i = 0; i < data.length; i++) {
@@ -22,6 +22,17 @@ $(".save").click(function() {
   $.ajax({
     method: "POST",
     url: "/api/update/" + id
+  }).then(function(data) {
+    location.reload()
+  })
+})
+
+$(".delete").click(function() {
+  var id = $(this).attr("data-id")
+  // console.log(id)
+  $.ajax({
+    method: "DELETE",
+    url: "/saved/" + id
   }).then(function(data) {
     location.reload()
   })
