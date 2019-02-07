@@ -20,7 +20,7 @@ app.get("/scrape", function(req, res) {
         result.summary = $(this)
           .find("li")
           .text();
-        result.url = $(this)
+        result.url = "https://www.nytimes.com" + $(this)
           .find("a")
           .attr("href");
         // Create a new Article using the `result` object built from scraping
